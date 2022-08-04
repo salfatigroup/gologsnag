@@ -40,7 +40,7 @@ logsnag.Publish(
         Event: "User Joined",
         Description: "Email: john@doe.com",
         Icon: "🎉",
-        Tags: &logsnap.Tags{
+        Tags: &gologsnag.Tags{
             "email": "john@doe.com",
             "user-id": "uid-12",
         },
