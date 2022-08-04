@@ -1,4 +1,4 @@
-package logsnag
+package gologsnag
 
 import (
 	"context"
