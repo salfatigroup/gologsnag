@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestLogSnag(t *testing.T) {
+func TestLogSnagLog(t *testing.T) {
     logsnag := NewLogSnag(os.Getenv("LOGSNAG_TOKEN"), os.Getenv("LOGSNAG_PROJECT"))
 
     err := logsnag.Publish(
@@ -29,4 +29,23 @@ func TestLogSnag(t *testing.T) {
     }
 
     t.Log("LogSnag event published")
+}
+
+func TestLogSnagInsight(t *testing.T) {
+    logsnag := NewLogSnag(os.Getenv("LOGSNAG_TOKEN"), os.Getenv("LOGSNAG_PROJECT"))
+
+    err := logsnag.Insight(
+        context.Background(),
+        &InsightOptions{
+            Title: "Test Insight",
+            Value: 1,
+            Icon: "🤭",
+        },
+    )
+
+    if err != nil {
+        t.Error(err)
+    }
+
+    t.Log("LogSnag insight published")
 }
